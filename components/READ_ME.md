@@ -1,0 +1,1 @@
+I could not open the '.sketch' file so colors, dimensions, spacing, etc., are based on my best guess.
