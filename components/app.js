@@ -16,12 +16,12 @@ const Wrapper = styled.div`
 
 export const App = () => {
 	
-	const [isExpanded, setExpanded] = useState(true)
+	const [isExpanded, setExpanded] = useState(false)
 
 	return (
 		<Wrapper isExpanded={isExpanded}>
-			<AllCategoriesButton isExpanded={isExpanded} setExpanded={setExpanded}/>
-			{isExpanded && <CategoriesOverlay />}
+			<AllCategoriesButton setExpanded={setExpanded} />
+			{isExpanded && <CategoriesOverlay setExpanded={setExpanded} />}
 		</Wrapper>
 	)
 }

@@ -12,7 +12,8 @@ const Button = styled.button`
     background-color: ${blue3pc};
     border: none;
     outline: none;
+    cursor: pointer;
 `
 
 export const AllCategoriesButton = props => 
-    <Button onClick={() => props.setExpanded(!props.isExpanded)} >Alle Kategorien</Button>
+    <Button onClick={() => props.setExpanded(true)} >Alle Kategorien</Button>

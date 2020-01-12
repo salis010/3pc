@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { Category } from './category'
+import { categoriesData } from './categories-data'
 import { blue3pc, gap } from './theme'
-import { categoryNames } from './category-names'
 
 const Wrapper = styled.div`
     display: inline-grid;
@@ -11,7 +11,15 @@ const Wrapper = styled.div`
     grid-row-gap: ${gap};
 `
 
-export const Categories = props => 
+export const Categories = (props) => 
     <Wrapper>
-        {categoryNames.map((category, i) => <Category key={i} title={category.title} />)}
+        {
+            categoriesData.map(category => 
+                <Category
+                    key={category.id}  
+                    id={category.id} 
+                    title={category.title} 
+                    selectedCategory={props.selectedCategory}
+                    setSelectedCategory={props.setSelectedCategory}
+                />)}
     </Wrapper>
