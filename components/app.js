@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
-import { grey3pc } from './theme'
 import { AllCategoriesButton } from './all-categories-button'
 import { CategoriesOverlay } from './categories-overlay'
+import { checkIfMobileDevice } from './check-if-mobile-device'
 
 
 const Wrapper = styled.div`
@@ -15,13 +15,23 @@ const Wrapper = styled.div`
 `
 
 export const App = () => {
-	
+
 	const [isExpanded, setExpanded] = useState(false)
+
+	const isMobileDevice = checkIfMobileDevice()
 
 	return (
 		<Wrapper isExpanded={isExpanded}>
-			<AllCategoriesButton setExpanded={setExpanded} />
-			{isExpanded && <CategoriesOverlay setExpanded={setExpanded} />}
+			<AllCategoriesButton 
+				ref={ref}
+				tabIndex="-1" 
+				setExpanded={setExpanded}
+			/>
+			{isExpanded && <CategoriesOverlay
+				setExpanded={setExpanded}
+				isMobileDevice={isMobileDevice}
+				/>
+			}
 		</Wrapper>
 	)
 }
