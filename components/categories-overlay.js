@@ -2,23 +2,37 @@ import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import { Categories } from './categories'
 import { Display } from './display'
+import { breakpoint } from './theme'
 
 const Overlay = styled.div`
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     position: absolute;
     left: 0px;
     top: 0px;
     width: 100%;
-    height: 100vh;
+    height: 1300px;
+    min-height: 100vh;
     background-color: RGB(100, 100, 100, 0.7);
+
+    @media only screen and (min-width: ${breakpoint}) { 
+        height: 100vh;
+        align-items: center;
+    }
 `
 
 const Wrapper = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
+    width: 90%;
+    max-width: 800px;
+    margin-top: 80px;
+
+    @media only screen and (min-width: ${breakpoint}) { 
+        margin-top: 0px;
+    }
 `
 
 const Img = styled.img`
@@ -39,7 +53,17 @@ export const H2 = styled.h2`
 
 const CategoriesAndDisplay = styled.div`
     display: flex;
+    
 `
+
+const DisplayWrapper = styled.div`
+    display: none;
+    
+    @media only screen and (min-width: ${breakpoint}) { 
+        display: flex;
+        width: 500px;
+    }
+` 
 
 export const CategoriesOverlay = props => {
     
@@ -51,8 +75,10 @@ export const CategoriesOverlay = props => {
                 <Img src="components/images/close.png" alt='X' onClick={() => props.setExpanded(false)}/>
                 <H2>Alle Kategorien</H2>
                 <CategoriesAndDisplay>
-                    <Categories selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
-                    <Display selectedCategory={selectedCategory}/>
+                    <Categories selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} isMobileDevice={props.isMobileDevice} />
+                    <DisplayWrapper>
+                        <Display selectedCategory={selectedCategory}/>
+                    </DisplayWrapper>
                 </CategoriesAndDisplay>
             </Wrapper>
         </Overlay>
