@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { blue3pc } from './theme'
 
@@ -29,4 +30,8 @@ export const AllCategoriesButton = props => {
                 Alle Kategorien
         </Button>
     )
+}
+
+AllCategoriesButton.propTypes = {
+    setExpanded: PropTypes.func.isRequired,
 }

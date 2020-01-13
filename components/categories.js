@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { Category } from './category'
 import { categoriesData } from './categories-data'
@@ -58,3 +59,9 @@ export const Categories = (props) =>
         </CategoriesWrapper>
         
     </Wrapper>
+
+Categories.propTypes = {
+    selectedCategory: PropTypes.number.isRequired,
+    setSelectedCategory: PropTypes.func.isRequired,
+    isMobileDevice: PropTypes.bool.isRequired,
+}
