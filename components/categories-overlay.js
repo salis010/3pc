@@ -69,13 +69,13 @@ const DisplayWrapper = styled.div`
 export const CategoriesOverlay = props => {
     
     const [selectedCategory, setSelectedCategory] = useState(-1)
-    
+
     const handleClose = event => {
-        if(event.key === ' ' || event.key === 'Enter') {
+        if (event.keyCode === 13 || event.keyCode === 32 || event.keyCode === 27) {
             props.setExpanded(false)
         }
     }
-
+    
     return (
         <Overlay>
             <Wrapper>
@@ -84,11 +84,15 @@ export const CategoriesOverlay = props => {
                     alt='X'
                     tabIndex={0}
                     onClick={() => props.setExpanded(false)}
-                    onKeyPress={handleClose}
+                    onKeyDown={handleClose}
                 />
                 <H2>Alle Kategorien</H2>
                 <CategoriesAndDisplay>
-                    <Categories selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} isMobileDevice={props.isMobileDevice} />
+                    <Categories 
+                        selectedCategory={selectedCategory}
+                        setSelectedCategory={setSelectedCategory}
+                        isMobileDevice={props.isMobileDevice}
+                    />
                     <DisplayWrapper>
                         <Display selectedCategory={selectedCategory}/>
                     </DisplayWrapper>
