@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import styled from '@emotion/styled'
 import { blue3pc } from './theme'
 
@@ -15,5 +15,18 @@ const Button = styled.button`
     cursor: pointer;
 `
 
-export const AllCategoriesButton = props => 
-    <Button onClick={() => props.setExpanded(true)} >Alle Kategorien</Button>
+export const AllCategoriesButton = props => {
+    
+    const ref = useRef(null)
+
+    useEffect(() => ref.current.focus())
+
+    return (
+        <Button 
+            tabIndex={0}
+            ref={ref}
+            onClick={() => props.setExpanded(true)} >
+                Alle Kategorien
+        </Button>
+    )
+}
