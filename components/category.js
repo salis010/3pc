@@ -38,10 +38,11 @@ export const Category = props => {
     return (
         <Wrapper
             onClick={props.isMobileDevice ? toggleSelectStatus : null} 
-            onFocus={() => console.log("Hello")}
+            onFocus={props.isMobileDevice ? null : toggleSelectStatus}
             onMouseOver={props.isMobileDevice ? null : () => props.setSelectedCategory(props.id)} 
             isSelected={props.id === props.selectedCategory} 
             id={props.id}
+            tabIndex={0}
         >
             <Content
                 onClick={props.isMobileDevice ? toggleSelectStatus : null} 

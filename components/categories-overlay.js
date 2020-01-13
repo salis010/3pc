@@ -69,10 +69,21 @@ export const CategoriesOverlay = props => {
     
     const [selectedCategory, setSelectedCategory] = useState(-1)
     
+    const handleClose = event => {
+        if(event.key === ' ' || event.key === 'Enter') {
+            props.setExpanded(false)
+        }
+    }
+
     return (
         <Overlay>
             <Wrapper>
-                <Img src="components/images/close.png" alt='X' onClick={() => props.setExpanded(false)}/>
+                <Img 
+                    src="components/images/close.png"
+                    alt='X' tabIndex={0}
+                    onClick={() => props.setExpanded(false)}
+                    onKeyPress={handleClose}
+                />
                 <H2>Alle Kategorien</H2>
                 <CategoriesAndDisplay>
                     <Categories selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} isMobileDevice={props.isMobileDevice} />

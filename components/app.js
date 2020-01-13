@@ -23,7 +23,6 @@ export const App = () => {
 	return (
 		<Wrapper isExpanded={isExpanded}>
 			<AllCategoriesButton 
-				ref={ref}
 				tabIndex="-1" 
 				setExpanded={setExpanded}
 			/>
