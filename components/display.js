@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { categoriesData, defaultTitle } from './categories-data'
 import { breakpoint, gap, blue3pc } from './theme'
@@ -38,3 +39,7 @@ export const Display = props =>
         <H2>{props.selectedCategory === -1 ? defaultTitle : categoriesData[props.selectedCategory].title}</H2>
         {(props.selectedCategory > -1) && <Body>{categoriesData[props.selectedCategory].body}</Body>}
     </Wrapper>
+
+Display.propTypes = {
+    selectedCategory: PropTypes.number.isRequired,
+}

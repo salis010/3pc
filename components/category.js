@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { breakpoint, categoryWidth, categoryHeight,  gap, blue3pc } from './theme'
 
@@ -52,4 +53,12 @@ export const Category = props => {
             </Content>        
         </Wrapper>
     )
+}
+
+
+Category.propTypes = {
+    id: PropTypes.number.isRequired,
+    selectedCategory: PropTypes.number.isRequired,
+    setSelectedCategory: PropTypes.func.isRequired,
+    isMobileDevice: PropTypes.bool.isRequired,
 }

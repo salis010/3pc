@@ -23,7 +23,6 @@ export const App = () => {
 	return (
 		<Wrapper isExpanded={isExpanded}>
 			<AllCategoriesButton 
-				tabIndex="-1" 
 				setExpanded={setExpanded}
 			/>
 			{isExpanded && <CategoriesOverlay

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { Categories } from './categories'
 import { Display } from './display'
@@ -80,7 +81,8 @@ export const CategoriesOverlay = props => {
             <Wrapper>
                 <Img 
                     src="components/images/close.png"
-                    alt='X' tabIndex={0}
+                    alt='X'
+                    tabIndex={0}
                     onClick={() => props.setExpanded(false)}
                     onKeyPress={handleClose}
                 />
@@ -94,4 +96,9 @@ export const CategoriesOverlay = props => {
             </Wrapper>
         </Overlay>
     )
+}
+
+CategoriesOverlay.propTypes = {
+    setExpanded: PropTypes.func.isRequired,
+    isMobileDevice: PropTypes.bool.isRequired,
 }
